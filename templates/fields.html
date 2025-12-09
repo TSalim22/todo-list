@@ -1,0 +1,3 @@
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="task-title">Task</label><input id="task-title" name="title" required maxlength="120" value="{{ task.title if task else '' }}" placeholder="Finish database coursework">
+<div class="grid"><div><label for="priority">Priority</label><select id="priority" name="priority">{% for priority in ['Low','Normal','High'] %}<option {{ 'selected' if (task.priority if task else 'Normal') == priority }}>{{ priority }}</option>{% endfor %}</select></div><div><label for="due">Due date (optional)</label><input id="due" name="due" type="date" value="{{ task.due if task and task.due else '' }}"></div></div>
